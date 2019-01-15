@@ -1,10 +1,28 @@
-.App {
-  text-align: center;
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+.icon {
+  font-family: 'Material Icons', serif;
+  font-size: 2rem;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 2;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.icon:hover {
+  cursor: pointer;
+}
+
+.App {
+  text-align: center;
 }
 
 .App-header {
@@ -22,11 +40,64 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calendar {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dateHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+
+.dateHeader::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 0;
+  padding-bottom: 8%;
+}
+
+.dateHeader h3 {
+  font-weight: bold;
+  margin: 0;
+  width: 40vw;
+}
+
+.dayNames {
+  font-weight: 600;
+}
+
+.grid {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+}
+
+.dayItem::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.dayItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dayItem.disabled {
+  color: lightgrey;
+}
+
+.dayItem.selected {
+  font-weight: 800;
 }
