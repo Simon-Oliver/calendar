@@ -74,7 +74,7 @@
 }
 
 .grid {
-  width: 80vw;
+  width: 85vw;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: auto;
@@ -90,8 +90,7 @@
 
 .dayItem {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .dayItem.disabled {
@@ -100,4 +99,16 @@
 
 .dayItem.selected {
   font-weight: 800;
+}
+
+.number {
+  padding: 10px;
+  font-size: 0.7rem;
+  position: absolute;
+}
+
+.icon.day {
+  font-size: 1rem;
+  align-self: center;
+  margin-left: 50%;
 }

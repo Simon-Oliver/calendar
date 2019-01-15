@@ -1,17 +1,10 @@
 import React from 'react';
 import dateFns from 'date-fns';
-import Days from './Days';
 
 class Calendar extends React.Component {
   state = {
     currentMonth: new Date(),
-    selectedDate: new Date(),
-    shifts: [
-      {
-        date: new Date(),
-        shift: 'night'
-      }
-    ]
+    selectedDate: new Date()
   };
 
   nextMonth = () => {
@@ -63,18 +56,50 @@ class Calendar extends React.Component {
     return days;
   };
 
+  renderDays = () => {
+    const { currentMonth, selectedDate } = this.state;
+    const monthStart = dateFns.startOfMonth(currentMonth);
+    const monthEnd = dateFns.endOfMonth(monthStart);
+    const startDate = dateFns.startOfWeek(monthStart);
+    const endDate = dateFns.endOfWeek(monthEnd);
+
+    const dateFormat = 'D';
+
+    const days = [];
+    let day = startDate;
+    let formattedDate = '';
+
+    while (day <= endDate) {
+      const cloneDay = day; // dateFns.addDays(day, 1);
+      formattedDate = dateFns.format(day, dateFormat);
+      days.push(
+        <div
+          className={`dayItem ${
+            !dateFns.isSameMonth(day, monthStart)
+              ? 'disabled'
+              : dateFns.isSameDay(day, selectedDate)
+              ? 'selected'
+              : ''
+          }`}
+          key={day}
+          onClick={() => this.selectedDate(dateFns.parse(cloneDay))}
+        >
+          <span className="number">{formattedDate}</span>
+          <div className="icon day">brightness_2</div>
+        </div>
+      );
+      day = dateFns.addDays(day, 1);
+    }
+    return days;
+  };
+
   render() {
     return (
       <div className="calendar">
         <div className="grid">
           {this.renderHeader()}
           {this.renderDayHeader()}
-          <Days
-            currentMonth={this.state.currentMonth}
-            selectedDate={this.state.selectedDate}
-            selectedDateFunc={this.selectedDate}
-            shifts={this.state.shifts}
-          />
+          {this.renderDays()}
         </div>
       </div>
     );
