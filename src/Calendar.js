@@ -1,6 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
 import Days from './Days';
+import ShiftModal from './ShiftModal';
 
 class Calendar extends React.Component {
   state = {
@@ -11,7 +12,8 @@ class Calendar extends React.Component {
         date: new Date(),
         shift: 'night'
       }
-    ]
+    ],
+    selectedShift: undefined
   };
 
   nextMonth = () => {
@@ -31,19 +33,47 @@ class Calendar extends React.Component {
 
     return (
       <div className="dateHeader">
-        <div className="icon" onClick={this.prevMonth}>
+        <div className="icon arrow" onClick={this.prevMonth}>
           chevron_left
         </div>
         <h3> {dateFns.format(this.state.currentMonth, dateFormat)}</h3>
-        <div className="icon" onClick={this.nextMonth}>
+        <div className="icon arrow" onClick={this.nextMonth}>
           chevron_right
         </div>
       </div>
     );
   };
 
-  selectedDate = date => {
-    console.log(date);
+  pickDate = date => {
+    const shift = this.state.shifts.filter(
+      e => dateFns.format(e.date, 'DD MM YY') === dateFns.format(date, 'DD MM YY')
+    );
+
+    if (shift.length > 0) {
+      this.setState(() => ({
+        selectedShift: shift[0]
+      }));
+    } else {
+      this.setState(() => ({
+        selectedShift: {date}
+      }));
+    }
+    
+  };
+
+  onSubmit = updatedShift => {
+    const prevShifts = this.state.shifts.filter(
+      e => dateFns.format(updatedShift.date, 'DD MM YY') !== dateFns.format(e.date, 'DD MM YY')
+    );
+    this.setState(() => ({
+      shifts: [...prevShifts, updatedShift]
+    }));
+  };
+
+  closeModal = () => {
+    this.setState(() => ({
+      selectedShift: ''
+    }));
   };
 
   renderDayHeader = () => {
@@ -72,10 +102,15 @@ class Calendar extends React.Component {
           <Days
             currentMonth={this.state.currentMonth}
             selectedDate={this.state.selectedDate}
-            selectedDateFunc={this.selectedDate}
+            pickDate={this.pickDate}
             shifts={this.state.shifts}
           />
         </div>
+        <ShiftModal
+          selectedShift={this.state.selectedShift}
+          closeModal={this.closeModal}
+          onSubmit={this.onSubmit}
+        />
       </div>
     );
   }

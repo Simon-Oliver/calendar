@@ -2,8 +2,9 @@ import React from 'react';
 import dateFns from 'date-fns';
 
 const Day = props => {
-  const { formattedDate, selectedDate, day, monthStart, selectedDateFunc } = props;
+  const { formattedDate, selectedDate, day, monthStart, pickDate, shift } = props;
   const cloneDay = day;
+  console.log(shift[0]);
   return (
     <div
       className={`dayItem ${
@@ -14,10 +15,10 @@ const Day = props => {
           : ''
       }`}
       key={day}
-      onClick={() => console.log(dateFns.format(cloneDay, 'YYYY MMMM DDDD'))}
+      onClick={() => pickDate(cloneDay)}
     >
       <span className="number">{formattedDate}</span>
-      {props.shift.length > 0 && <div className="icon day">brightness_2</div>}
+      {shift.length > 0 && <p>{shift[0].shift}</p>}
     </div>
   );
 };

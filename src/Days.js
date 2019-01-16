@@ -3,7 +3,7 @@ import dateFns from 'date-fns';
 import Day from './Day';
 
 const RenderDays = props => {
-  const { currentMonth, selectedDate, selectedDateFunc, shifts } = props;
+  const { currentMonth, selectedDate, pickDate, shifts } = props;
   const monthStart = dateFns.startOfMonth(currentMonth);
   const monthEnd = dateFns.endOfMonth(monthStart);
   const startDate = dateFns.startOfWeek(monthStart);
@@ -26,8 +26,9 @@ const RenderDays = props => {
         selectedDate={selectedDate}
         day={day}
         monthStart={monthStart}
-        selectedDateFunc={selectedDateFunc}
+        pickDate={pickDate}
         shift={shift}
+        key={day}
       />
     );
     day = dateFns.addDays(day, 1);
