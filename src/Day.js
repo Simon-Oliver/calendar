@@ -4,7 +4,6 @@ import dateFns from 'date-fns';
 const Day = props => {
   const { formattedDate, selectedDate, day, monthStart, pickDate, shift } = props;
   const cloneDay = day;
-  console.log(shift[0]);
   return (
     <div
       className={`dayItem ${

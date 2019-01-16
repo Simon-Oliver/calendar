@@ -41,9 +41,11 @@ class ShiftModal extends React.Component {
           <select
             name="shift"
             onChange={this.selectedShift}
-            defaultValue={this.state.selectedShift.shift ? this.state.selectedShift.shift : ''}
+            defaultValue={
+              this.state.selectedShift.shift ? this.state.selectedShift.shift : 'default'
+            }
           >
-            <option value="" selected disabled>
+            <option value="default" disabled>
               Choose here
             </option>
             <option value="morning">Morning</option>
