@@ -10,7 +10,7 @@ class Calendar extends React.Component {
     shifts: [
       {
         date: new Date(),
-        shift: 'night'
+        shift: ''
       }
     ],
     selectedShift: undefined

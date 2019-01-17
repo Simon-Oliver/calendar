@@ -1,157 +1,178 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 .icon {
-  font-family: 'Material Icons', serif;
-  font-size: 2rem;
-  font-style: normal;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 2;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
+    font-family: 'Material Icons', serif;
+    font-size: 2rem;
+    font-style: normal;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
 }
 
 .icon.arrow:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 .calendar {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .dateHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  grid-column-start: 1;
-  grid-column-end: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 8;
 }
 
 .dateHeader::before {
-  content: '';
-  display: inline-block;
-  width: 1px;
-  height: 0;
-  padding-bottom: 8%;
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 0;
+    padding-bottom: 8%;
 }
 
 .dateHeader h3 {
-  font-weight: bold;
-  margin: 0;
-  width: 40vw;
+    font-weight: bold;
+    margin: 0;
+    width: 40vw;
 }
 
 .dayNames {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .grid {
-  width: 85vw;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+    width: 85vw;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
 }
 
 .dayItem::before {
-  content: '';
-  display: inline-block;
-  width: 1px;
-  height: 0;
-  padding-bottom: 100%;
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 0;
+    padding-bottom: 100%;
 }
 
 .dayItem {
-  display: flex;
-  justify-content: flex-start;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .dayItem:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .dayItem.disabled {
-  color: lightgrey;
+    color: lightgrey;
 }
 
-.dayItem.selected {
-  font-weight: 800;
+.dayItem p {
+    font-size: 0.6rem;
+    margin: 60% 0 0 50%;
+}
+
+.dayItem.selected::before {
+    content: '';
+    width: 3px;
+    background: red;
+}
+
+.N1 {
+    background: black;
+    color: white;
+}
+
+.E3 {
+    background: navy;
+    color: white;
+}
+
+.MA {
+    background: peachpuff;
 }
 
 .number {
-  padding: 0.3rem;
-  font-size: 0.7rem;
-  position: absolute;
+    padding: 0.3rem;
+    font-size: 0.7rem;
+    position: absolute;
 }
 
 .icon.day {
-  font-size: 0.8rem;
-  align-self: center;
-  margin-left: 40%;
-  padding: 4px;
+    font-size: 0.8rem;
+    align-self: center;
+    margin-left: 40%;
+    padding: 4px;
 }
 
-.ReactModalPortal > div {
-  opacity: 0;
+.ReactModalPortal>div {
+    opacity: 0;
 }
 
 .ReactModalPortal .ReactModal__Overlay {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  transition: opacity 200ms ease-in-out;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: opacity 200ms ease-in-out;
 }
 
 .ReactModalPortal .ReactModal__Overlay--after-open {
-  opacity: 1;
+    opacity: 1;
 }
 
 .ReactModalPortal .ReactModal__Overlay--before-close {
-  opacity: 0;
+    opacity: 0;
 }
 
 .modal {
-  background: lightblue;
-  color: white;
-  padding: 2rem;
-  max-width: 30rem;
-  outline: none;
-  text-align: center;
+    background: #f1c1a0;
+    color: white;
+    padding: 5rem;
+    max-width: 30rem;
+    outline: none;
+    text-align: center;
 }
 
 .modal__title {
-  margin: 0 0 2rem 0;
+    margin: 0 0 2rem 0;
 }
 
 .modal__body {
-  font-weight: 300;
-  font-size: 2rem;
-  word-break: break-all;
+    font-weight: 300;
+    font-size: 2rem;
+    word-break: break-all;
 }

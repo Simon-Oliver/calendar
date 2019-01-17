@@ -12,7 +12,7 @@ const Day = props => {
           : dateFns.isSameDay(day, selectedDate)
           ? 'selected'
           : ''
-      }`}
+      } ${shift.length > 0 && shift[0].shift}`}
       key={day}
       onClick={() => pickDate(cloneDay)}
     >

@@ -13,6 +13,7 @@ class ShiftModal extends React.Component {
   }
 
   selectedShift = e => {
+    console.log(e.target.name);
     const newShift = {
       date: this.props.selectedShift.date,
       shift: e.target.value,
@@ -48,10 +49,10 @@ class ShiftModal extends React.Component {
             <option value="default" disabled>
               Choose here
             </option>
-            <option value="morning">Morning</option>
-            <option value="evening">Evening</option>
-            <option value="night">Night</option>
-            <option value="off">Off</option>
+            <option value="MA">Morning</option>
+            <option value="E3">Evening</option>
+            <option value="N1">Night</option>
+            <option value="DO">Off</option>
           </select>
         </form>
 
