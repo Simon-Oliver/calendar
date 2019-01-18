@@ -1,12 +1,14 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import '../node_modules/semantic-ui-css/semantic.min.css';
+html {
+    height: 101vh;
+}
+
 .icon {
     font-family: 'Material Icons', serif;
     font-size: 2rem;
     font-style: normal;
     display: inline-block;
-    vertical-align: middle;
-    line-height: 2;
     text-transform: none;
     letter-spacing: normal;
     word-wrap: normal;
