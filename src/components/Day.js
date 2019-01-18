@@ -1,5 +1,6 @@
 import React from 'react';
 import dateFns from 'date-fns';
+import '../styles/components/day.css';
 
 const Day = props => {
   const { formattedDate, selectedDate, day, monthStart, pickDate, shift } = props;

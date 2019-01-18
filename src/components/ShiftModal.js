@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import '../styles/components/shiftModal.css';
 
 class ShiftModal extends React.Component {
   state = {
@@ -13,7 +14,6 @@ class ShiftModal extends React.Component {
   }
 
   selectedShift = e => {
-    console.log(e.target.name);
     const newShift = {
       date: this.props.selectedShift.date,
       shift: e.target.value,
