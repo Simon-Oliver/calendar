@@ -1,0 +1,129 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import '../../node_modules/semantic-ui-css/semantic.min.css';
+html {
+  height: 101vh;
+}
+
+.icon {
+  font-family: 'Material Icons', serif;
+  font-size: 2rem;
+  font-style: normal;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.icon.arrow:hover {
+  cursor: pointer;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.calendar {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dateHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+
+.dateHeader::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 0;
+  padding-bottom: 8%;
+}
+
+.dateHeader h3 {
+  font-weight: bold;
+  margin: 0;
+  width: 40vw;
+}
+
+.dayNames {
+  font-weight: 600;
+}
+
+.grid {
+  width: 85vw;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+}
+
+.dayItem::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.dayItem {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dayItem:hover {
+  cursor: pointer;
+}
+
+.dayItem.disabled {
+  color: lightgrey;
+}
+
+.dayItem p {
+  font-size: 0.6rem;
+  margin: 60% 0 0 50%;
+}
+
+.dayItem.selected::before {
+  content: '';
+  width: 3px;
+  background: rgb(255, 0, 128);
+}
+
+.number {
+  padding: 0.3rem;
+  font-size: 0.7rem;
+  position: absolute;
+}
+
+.icon.day {
+  font-size: 0.8rem;
+  align-self: center;
+  margin-left: 40%;
+  padding: 4px;
+}

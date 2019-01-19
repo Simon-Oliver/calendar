@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/components/shiftModal.css';
+import '../../../../styles/components/shiftModal.css';
 import { Button, Header, Icon, Modal, Form } from 'semantic-ui-react';
 
 const options = [
