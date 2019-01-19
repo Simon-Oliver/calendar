@@ -1,33 +1,25 @@
 {
   "name": "calendar",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "date-fns": "^1.30.1",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-modal": "^3.8.1",
-    "react-scripts": "2.1.3",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.84.0"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simon-Oliver/calendar.git"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simon-Oliver/calendar/issues"
+  },
+  "homepage": "https://github.com/Simon-Oliver/calendar#readme",
   "devDependencies": {
-    "eslint": "^5.6.0",
+    "babel-eslint": "9.0.0",
+    "eslint": "5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.4.0",
     "eslint-config-react-app": "^3.0.6",
@@ -37,5 +29,8 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.3",
     "prettier": "^1.15.3"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   }
 }
