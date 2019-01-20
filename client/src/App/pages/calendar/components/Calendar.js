@@ -2,6 +2,7 @@ import React from 'react';
 import dateFns from 'date-fns';
 import Days from './Days';
 import ShiftModal from './ShiftModal';
+import axios from 'axios';
 
 class Calendar extends React.Component {
   state = {
