@@ -68,6 +68,18 @@ class Calendar extends React.Component {
     this.setState(() => ({
       shifts: [...prevShifts, updatedShift]
     }));
+
+    axios
+      .post('/shift', {
+        date: dateFns.format(updatedShift.date, 'YY-MM-DD'),
+        shift: updatedShift.shift
+      })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   closeModal = () => {
