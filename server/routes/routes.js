@@ -4,8 +4,6 @@ const Shift = require('../models/shift');
 
 const router = express.Router();
 router.post('/shift', (req, res) => {
-  console.log(req.body.date);
-
   const shift = {
     date: req.body.date,
     shift: req.body.shift
@@ -24,13 +22,17 @@ router.post('/shift', (req, res) => {
     (err, doc) => {
       // Handle any possible database errors
       if (err) return res.status(500).send(err);
-      return res.send(shift);
     }
   );
-
-  // shift
-  //   .save()
-  //   .then(doc => res.send(doc))
-  //   .catch(e => res.status(400).send(e));
 });
+
+router.get('/shift', (req, res, next) => {
+  Shift.find((err, shifts) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(shifts);
+  });
+});
+
 module.exports = router;

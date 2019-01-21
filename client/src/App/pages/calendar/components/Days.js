@@ -18,7 +18,7 @@ const RenderDays = props => {
   while (day <= endDate) {
     formattedDate = dateFns.format(day, dateFormat);
     const shift = shifts.filter(
-      e => dateFns.format(e.date, 'DD MM YY') === dateFns.format(day, 'DD MM YY')
+      e => dateFns.format(e.date, 'YY-MM-DD') === dateFns.format(day, 'YY-MM-DD')
     );
     days.push(
       <Day

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../../styles/components/shiftModal.css';
 import { Button, Header, Icon, Modal, Form } from 'semantic-ui-react';
+import dateFns from 'date-fns';
 
 const options = [
   { key: 'm', text: 'Morning', value: 'MA', hours: 7 },
@@ -23,8 +24,7 @@ class ShiftModal extends React.Component {
   selectedShift = (e, i) => {
     const newShift = {
       date: this.props.selectedShift.date,
-      shift: i.value,
-      icon: 'brightness_2'
+      shift: i.value
     };
 
     this.setState({ selectedShift: newShift });

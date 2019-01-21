@@ -17,6 +17,13 @@ class Calendar extends React.Component {
     selectedShift: undefined
   };
 
+  loadShiftsFromServer = () => {
+    axios.get('/shift').then(res => {
+      res.data.forEach(e => (e.date = dateFns.parse(e.date)));
+      this.setState({ shifts: res.data });
+    });
+  };
+
   nextMonth = () => {
     this.setState({
       currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
@@ -47,9 +54,8 @@ class Calendar extends React.Component {
 
   pickDate = date => {
     const shift = this.state.shifts.filter(
-      e => dateFns.format(e.date, 'DD MM YY') === dateFns.format(date, 'DD MM YY')
+      e => dateFns.format(e.date, 'YYYY-MM-DD') === dateFns.format(date, 'YYYY-MM-DD')
     );
-
     if (shift.length > 0) {
       this.setState(() => ({
         selectedShift: shift[0]
@@ -63,15 +69,16 @@ class Calendar extends React.Component {
 
   onSubmit = updatedShift => {
     const prevShifts = this.state.shifts.filter(
-      e => dateFns.format(updatedShift.date, 'DD MM YY') !== dateFns.format(e.date, 'DD MM YY')
+      e => updatedShift.date !== e.date //dateFns.format(e.date, 'YY-MM-DD')
     );
+
     this.setState(() => ({
       shifts: [...prevShifts, updatedShift]
     }));
 
     axios
       .post('/shift', {
-        date: dateFns.format(updatedShift.date, 'YY-MM-DD'),
+        date: dateFns.format(updatedShift.date, 'YYYY-MM-DD'),
         shift: updatedShift.shift
       })
       .then(function(response) {
@@ -103,6 +110,10 @@ class Calendar extends React.Component {
     }
 
     return days;
+  };
+
+  componentDidMount = () => {
+    this.loadShiftsFromServer();
   };
 
   render() {
